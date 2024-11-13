@@ -14,14 +14,8 @@ body{
    font-size: 16px; color: #222;
 }
 button{cursor: pointer;}
-
-/* .inner{width: 93%; max-width: 1400px; margin: auto;}
-max-width: 1400px;-> pc때 width 값을 준 것*/
-
 .inner{max-width: 100%; padding: 0 3%;}
-/* max-width: 100%; 뷰포트보다 자손들이 커지지말라는 뜻(반드시x) */
 .blind{display: block; width: 0; height: 0; overflow: hidden;}
-/* 대기업 기준으로 각 사이트의 blind를 비교해 볼 것 */
 
 .main_link{
    display: inline-flex; gap: 8px;
@@ -34,11 +28,11 @@ max-width: 1400px;-> pc때 width 값을 준 것*/
 
 /* skip_nav */
 .skip_nav a{
-   /* top: 높이값 현재로는  line-height: 50px; 높이를 잡음*/
    position: absolute; left: 0;right: 0;top:-50px;
    background: var(--main-color); color:#fff;
    font-weight: 500; line-height: 50px; text-align: center;
-   z-index: 9999;}
+   z-index: 9999;
+}
 .skip_nav a:focus {top: 0;}
 
 /* popup */
@@ -59,6 +53,7 @@ max-width: 1400px;-> pc때 width 값을 준 것*/
 @media screen and (max-width: 600px){
    #popup {width: 90%; left: 50%; transform: translateX(-50%);}
 }
+
 /* Header */
 .home header{
    position:fixed; left:  0; right: 0;top: 0;z-index: 100;
@@ -73,25 +68,17 @@ header h1 a{
    display: block; width: 178px; height: 0;
    padding-top: 28.8%;
    overflow: hidden;
-   /* height: 51px; */
    background-image: url(/img/common/logo.svg);
    background-size: cover;
    transition: all 0.3s;
-   /* background-repeat: no-repeat; */
+
 }
 
-/* h=> 가변값
-178:51=300:x
-x=> 28.8%*/
-/* width: 178px; height: 0;padding-top: 28.8%;
-   overflow: hidden; => background에 이미지 사용할 때 가능
-   => *padding-top: 28.8%; */
 
 header #gnb .dep1{display: flex;}
 header #gnb .dep1>li{
    display: flex; align-items: center;
    padding: 0 34px; height: 110px;
-   /* justify-content: center; align-items: center;-> 높이가 필요해서 꼭 들어가야함(.inner와 개별)*/
 }
 header #gnb .dep1>li>a{
 font-size: 20px;font-weight: 700;
@@ -99,26 +86,8 @@ position: relative;}
 
 header #gnb .dep1>li>a:hover, header #gnb .dep1>li.active{
    text-decoration: underline var(--main-color) 4px;
-   text-underline-offset: 10px;}
-
-/* header #gnb .dep1>li>a:hover, header #gnb .dep1>li.active{
-   text-decoration: underline;
-   text-decoration-color: var(--main-color);
-   text-decoration-thickness: 4px;
    text-underline-offset: 10px;
-} */
-
-
-/* ***Legacy  애니메이션을 줄때는 legacy 사용*/
-/* header #gnb .dep1>li>a::after{
-   content: ""; display: none;
-   position: absolute; left: 0;bottom: -14px;
-   width: 100%;height: 4px;
-   background: var(--main-color);
 }
-header #gnb .dep1>li:hover>a::after{
-   display: block;
-} */
 
 header #gnb .dep2_wrap{
    display: none;
@@ -155,11 +124,7 @@ header #gnb .dep3>li>a:hover{
 header .header_util{display: flex; align-items: center;}
 header .lang_wrap{position: relative;}
 header .lang_wrap button{display: flex; gap: 5px; align-items: center;}
-
-/* js : add /remove일 때 transition 같이 적용 */
 header .lang_wrap button i{transition: all 0.3s;}
-
-/* .lang_wrap button.open i =>js 클릭했을때 */
 header .lang_wrap button.open i{transform: rotate(180deg);}
 
 header .lang_wrap ul {
@@ -173,14 +138,7 @@ header .lang_wrap ul {
    transition: all 0.3s;
 }
 
-/* .lang_wrap ul.open=> js 클릭했을때 */
 header .lang_wrap ul.open{opacity: 1;}
-
-/* 안보여야하는 리스트를 단순히 투명도(opacity)만 조절하면 클릭이 동작하기 때문에 자바스크립트 처리가 필요함.
-- 안보여야하는 리스트 처리 방법(현재)
--> display: flex; 와 opacity: 0; -> opacity: 1; + transition: all 0.3s; 사용
- */
-
 header .search_popup{
    display: none;
    position: absolute; left: 0;top: 111px; right:0;
@@ -192,9 +150,6 @@ header .search_popup h2{
    margin-bottom: 25px;
    color: var(--main-color); text-align: center;
    font-weight: 800; font-size: 40px;
-
-   /* text-transform: uppercase; */
-   /* display: flex/ grid; 아니라서 gap을 줄 수 없음 */
 }
 header .search_popup form{
    display: flex; justify-content: center;
@@ -204,7 +159,6 @@ header .search_popup form input {
    background: #fafafa;
    font-size: 18px; color: #8f98a7;
    border-radius: 8px;
-   /* border: 1px solid #000; */
 }
 header .search_popup form button {
    background: #222; color: #fff;
@@ -229,9 +183,6 @@ header .allmenu_popup .allmenu_left{
 header .allmenu_popup .allmenu_logo{
    width: 178px;
    position: absolute; left: 60px; top: 30px;
-   /* height: auto; */
-   /* padding-top: 28.8%; */
-   /* padding-top: 28.8%; 기준이 되는width 박스의 자손에게 설정 필요  */
 }
 
 header .allmenu_popup .allmenu_logo .img_box{
@@ -240,7 +191,6 @@ header .allmenu_popup .allmenu_logo .img_box{
 }
 header .allmenu_popup .allmenu_logo .img_box img{
    position: absolute; left: 0; top: 0;
-   /*   변경 될 때 position: absolute; left: 0; top: auto;   */
 }
 
 header .allmenu_popup .btn_allmenu_close{position: absolute; right: 50px;top: 50px;}
@@ -255,46 +205,37 @@ header .allmenu_popup .allmenu_footer dl{
    grid-template-columns: 70px auto;
    grid-template-rows: repeat(2,30px);
    padding-bottom: 10px;margin-bottom: 30px;
-
    border-bottom: 1px solid rgba(255,255,255,0.5);
-
-   /* border-bottom: 1px solid #e0e0e0;
-   font-size: 16px;color: #e0e0e0;
-   opacity: 0.5; */
 }
 header .allmenu_popup .allmenu_footer dt{font-weight: 700;}
 
 header .allmenu_popup .allmenu_footer .copyright{opacity: 0.7;}
 header .allmenu_popup .allmenu_right .dep1{
    height: 100%;
-   overflow: auto; /* 스크롤 / 스크롤 디자인: */
-   scrollbar-color: #e0e0e0 transparent; /* transparent 투명 */
+   overflow: auto;
+   scrollbar-color: #e0e0e0 transparent;
    scrollbar-width: thin;
-   /* border: 2px solid #00a287; */
-
 }
+
 header .allmenu_popup .allmenu_right .dep1>li{
    display: flex;
    padding: 40px 0;
    border-bottom: 1px solid #eee;
-
 }
+
 header .allmenu_popup .allmenu_right .dep1>li>a{
    width: 200px;
    font-size: 24px;
    font-weight: 700;
-   flex-shrink: 0; /* display:bolck 되어 있다는 말 */
+   flex-shrink: 0;
 }
+
 header .allmenu_popup .allmenu_right .dep2{
    display: grid; flex-grow: 1;
    grid-template-columns: repeat(4,1fr);
-   /* grid-template-rows: repeat(,); 변할 수 있기때문에 굳이 작성안해도 됨*/
    font-size: 18px;
 }
 
-/* header on / scroll */
-/* header.scroll :scroll 클래스를 가졌을때 나타는 현상(띄어쓰기 X)
-vs header .scroll => header에 scroll이라는 자손*/
 header.scroll{background: #fff; color: inherit;}
 
 /* header=on */
@@ -305,10 +246,8 @@ header.on, header.sub_header{
 
 header.on h1 a, header.sub_header h1 a{
    background-position: center bottom;
-   /* background-position: 0 0; 디폴트 값 */
 }
 
-/* header.mob .allmenu_left{} -> 미디어 커리에 사용안하고 디폴트에 작성*/
 /* header media */
 @media screen and (min-width: 1440px){
    header .header_util {font-size: 24px; gap: 26px;}
@@ -324,7 +263,6 @@ header.on h1 a, header.sub_header h1 a{
    header #gnb{display: none;}
    header .inner{height: 90px;}
    header h1 a{width: 163px;}
-   /* header h1 {display: flex;align-items: center;height: 80px;} */
    header .header_util {font-size: 20px; gap: 22px;}
    header .allmenu_popup .allmenu_left{display: none;}
    header .allmenu_popup .allmenu_logo .img_box img {bottom: 0; top: auto;}
@@ -341,9 +279,9 @@ header.on h1 a, header.sub_header h1 a{
 }
 
 /* Footer */
-
 footer{padding: 70px 0;}
-.f_top{display: flex; justify-content: space-between;
+.f_top{
+   display: flex; justify-content: space-between;
    font-size: 18px; margin-bottom: 90px;
 }
 .f_top .f_menu{display: flex; gap: 40px;}
@@ -351,35 +289,22 @@ footer{padding: 70px 0;}
 .f_top .f_right{display: flex; gap: 40px; align-items: center;}
 .f_top .f_right .family_wrap{position: relative;}
 .f_top .f_right .family_wrap button{
-   display: flex;gap: 0.4em;/* button 폰트사이즈 18px의 0.4m 크기 */
+   display: flex;gap: 0.4em;
    font-size: 18px; font-weight: 700;
 }
 .f_top .f_right .family_wrap ul{
    overflow: auto; display: none;
    position: absolute; left: 50%; bottom: 2.5em;
-   transform: translateX(-50%);  /* padding 부모 글자 크기의 기준으로 */
+   transform: translateX(-50%);
    height:  120px; padding: 1em 2em;
    border: 1px solid #e0e0e0; border-radius: 10px;
    background: #fff; box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.05);
-   /* font-size: 24px; line-height: 25px; */
    font-size: 16px; line-height:25px;
    white-space: nowrap; text-align: center;
-   /* display: flex; flex-direction: column; gap: 1em; */
 }
-/* .f_top .f_right .family_wrap li{margin: 1em;} 을 주는 경우,
-   .f_top .f_right .family_wrap ul->  padding: 0.3em 2em; 을 주면서 첫째/막내 li 높이 조절
-  = display: flex; flex-direction: column; gap: 1em;  */
-
 .f_top .f_right .family_wrap li:hover {text-decoration: underline 1px #4d4d4d;}
-.f_top .f_right .family_wrap ul::-webkit-scrollbar{width: 0px;
-   /* background-color: #4d4d4d; */
-}
-/* .f_top .f_right .family_wrap ul::-webkit-scrollbar-thumb{background-color: #ccc;} */
-
-.f_top .f_right .sns_wrap{display: flex;  gap: 1em; /*.sns_wrap 폰트사이즈 24px의 1em =24px */
-   font-size: 24px;}
-.f_top .f_right .sns_wrap li{}
-.f_top .f_right .sns_wrap i{}
+.f_top .f_right .family_wrap ul::-webkit-scrollbar{width: 0px;}
+.f_top .f_right .sns_wrap{display: flex;  gap: 1em;font-size: 24px;}
 
 .f_btm{
    display: flex; gap: 3em;
@@ -391,14 +316,10 @@ footer{padding: 70px 0;}
    height: 0; padding-top: 28.8%;
 }
 .f_btm .f_logo a img{position: absolute; left: 0; bottom: 0; width: 100%;}
-
 .f_btm .f_address address{margin-bottom: 0.5em; white-space: nowrap;}
-.f_btm .f_address p{}
-
 .f_btm .f_contact{display: flex; gap: 2em; white-space: nowrap;}
 .f_btm .f_contact p{display: flex; gap: 0.8em;}
 .f_btm .f_contact span{font-weight: 700;}
-.f_btm .f_contact a{}
 
 /* FOOTER MEDIA */
 @media screen and (max-width: 1280px){
@@ -432,13 +353,6 @@ footer{padding: 70px 0;}
 @media screen and (max-width: 480px){
    .f_top .f_menu{justify-content: space-between;}
 }
-
-/* main - 메인본문 */
-main{}
-.home main{}
-
-.sub main{}
-
 
 /* home-Main-common */
 .home main section {margin-top: 120px;}
@@ -474,15 +388,13 @@ main{}
 
 /* swiper_content -> swiper-controls-wrap */
 .home .main_visual .swiper_content .swiper-controls-wrap{
-   /* position: absolute; bottom: 30%; left: 0;right: 0;z-index: 1;  => 삭제*/
-   display: flex; gap: 10px; justify-content: center; align-items: center;}
-   .home .main_visual .swiper_content .swiper-pagination{
-      position: static; width: auto !important; height: auto;}
-/* 동생 swiper-auto-controls과 나란히 놓기 위해서 static 하고 width 값이 있었기에 auto 사용 */
+   display: flex; gap: 10px;
+   justify-content: center; align-items: center;
+}
+.home .main_visual .swiper_content .swiper-pagination{position: static; width: auto !important; height: auto;}
 .home .main_visual .swiper_content .swiper-pagination span{
    background: none; opacity: 1; border: 1px solid #fff; border-radius: 10px; width: 10px; height: 10px;}
 .home .main_visual .swiper_content .swiper-pagination .swiper-pagination-bullet-active {width: 10px; background: #fff;}
-
 .home .main_visual .swiper-auto-controls {color: #fff; font-size: 20px;}
 .home .main_visual .swiper-auto-controls .auto-stop{display: none;}
 
@@ -491,17 +403,8 @@ main{}
    width: auto; height:auto;}
 .home .main_visual .swiper_content .swiper-button-right{
    position: absolute; right: 10px; top: auto; bottom: 0; opacity: 0.5;
-   width: auto; height:auto; transform: scaleX(-1);}
-
-/* html에서 swiper-button-prev/next 사용했을 경우,
-.home .main_visual .swiper-button-prev {width: auto; opacity: 1;}
-.home .main_visual .swiper-button-next {width: auto;  opacity: 1; transform: rotateY(180deg);}
-.home .main_visual .swiper-button-prev::after {display: none;}
-.home .main_visual .swiper-button-next::after {display: none;}
-*/
-/* quick_list
-position: absolute -> 자손기준으로 됨 */
-
+   width: auto; height:auto; transform: scaleX(-1);
+}
 .home .main_visual .quick_list{
    display: flex; flex-wrap: wrap;
    position: absolute;left: 0;right: 0; bottom: 0; z-index: 10;
@@ -521,8 +424,6 @@ position: absolute -> 자손기준으로 됨 */
 .home .main_visual .quick_list a:hover{background: var(--main-color);}
 .home .main_visual .quick_list a i{font-size: 24px;}
 .home .main_visual .quick_list a span{display: flex; gap: 20px; align-items: center; font-size: 20px;}
-.home .main_visual .quick_list a span img{}
-
 
 @media screen and (max-width: 1280px) {
    .home .main_visual .main_swiper{height: 96vh;}
@@ -552,38 +453,19 @@ position: absolute -> 자손기준으로 됨 */
 
 /* 1. earth_wrap */
 .earth_wrap {text-align: center;}
-.earth_wrap h3{ margin: auto;
-   /* width: 700px; =>default */}
-.earth_wrap .inner p{
-   font-size: 20px; margin: 20px 0;
-   /*
-   display: flex; align-items: center;
-   justify-content: center;
-   ->.earth_wrap {text-align: center;}을 사용함으로써 삭제
-   *형제 관계에서의 간격은 margin 사용
-   */
-}
+.earth_wrap h3{ margin: auto;}
+.earth_wrap .inner p{font-size: 20px; margin: 20px 0;}
 .earth_wrap strong{color: var(--main-color); font-weight: 600;}
 .earth_wrap h3 .img_bg{
    background: url(../img/main/sec02_title.png) no-repeat center;
    background-size: contain;
    height: 0; padding-top: 10.43%;
    overflow: hidden;
-   /*
-   height: 0;-> 늘어나지 못하게
-   부모의 width의 10.43% 임 (padding-top: 10.43%) */
 }
-.earth_wrap img{margin: auto;
-/* block의 가운데 정렬:margin: auto; */
-}
-
-/* 2. course_wrap(과정섹션_PROGRAM)*/
-.course_wrap{}
-/* .course_wrap .course_content>*{border: 1px solid #000;} */
+.earth_wrap img{margin: auto;}
 .course_wrap .course_content{
    display: grid; gap: 24px;
    grid-template-columns: 2fr repeat(2, 1fr);
-   /*grid-template-columns: repeat(3,auto); = grid-template-columns: auto auto auto; */
 }
 .course_wrap .course_content>* {overflow: hidden; border-radius: 10px;}
 .course_wrap .title_box{padding: 40px;}
@@ -615,11 +497,6 @@ position: absolute -> 자손기준으로 됨 */
 @media screen and (max-width: 1140px){
    .course_wrap .course_content{grid-template-columns: repeat(2, 1fr);}
    .course_wrap .title_box{grid-column-start: 1; grid-column-end: 3;text-align: center;}
-
-   /* grid-column-start: 1; grid-column-end: 3;
-   = grid-column: 1/3;
-   = grid-column: 1/ span 2;
-   */
    .course_wrap .title_box .br1{display: none;}
    .course_wrap .title_box .br2{display: block;}
    .course_wrap .course_link {height: 300px;}
@@ -641,8 +518,7 @@ position: absolute -> 자손기준으로 됨 */
       font-size: 20px;}
 }
 @media screen and (max-width: 420px){
-   .course_wrap .course_content{width:100%
-   }
+   .course_wrap .course_content{width:100%}
 }
 
 /* 3. faculty_wrap */
@@ -651,30 +527,22 @@ position: absolute -> 자손기준으로 됨 */
    background: url(../img/main/sec04_bg.jpg) center;
    background-size: cover;color: #FFF;text-align: center;
 }
-/* .faculty_wrap .title_box .h3{font-size: 64px;} */
 .faculty_wrap .title_box p {margin: 20px 0 40px;}
 .faculty_wrap .faculty_swiper {margin-top: 40px; overflow: hidden;}
 .faculty_wrap .faculty_swiper .swiper-wrapper {transition-timing-function:linear;}
 .faculty_wrap .faculty_swiper li {width: 210px;}
 .faculty_wrap .faculty_swiper .img_box {
-display: flex;align-items: flex-end; overflow: hidden;
-height: 320px; margin-bottom: 30px;
-background: rgba(11,44,39,0.2);border-radius: 110px;
+   display: flex;align-items: flex-end; overflow: hidden;
+   height: 320px; margin-bottom: 30px;
+   background: rgba(11,44,39,0.2);border-radius: 110px;
 }
 .faculty_wrap .faculty_swiper .img_box img {filter: grayscale(100%);}
 .faculty_wrap .faculty_swiper li:hover img{filter: none;}
 
 .faculty_wrap .faculty_swiper .txt_box {
-display: flex;flex-direction: column; gap: 10px;
-
-}
+   display: flex;flex-direction: column; gap: 10px;}
 .faculty_wrap .faculty_swiper .txt_box strong {font-size: 18px; font-weight: 700;}
-.faculty_wrap .faculty_swiper .txt_box span {}
 
-/* @media screen and (max-width: 1026px){
-   .faculty_wrap .title_box .h3{font-size: 60px;}
-   .faculty_wrap .title_box p {margin: 20px 0 40px;}
-} */
 
 /* 4. news_wrap */
 .news_wrap{padding: 0 3%;}
@@ -689,18 +557,10 @@ display: flex;flex-direction: column; gap: 10px;
    text-underline-offset: 10px; color: #222; font-weight: 700;
 }
 .news_wrap .tabs_wrap .btn_news_more{font-size: 18px; font-weight: 700;}
-
-.news_wrap .contents_wrap{}
 .news_wrap .contents_wrap .content_box{display: none;}
 .news_wrap .contents_wrap .content_box:first-child{display: block;}
-
-.news_wrap .contents_wrap .content_box .empty_data{}
 .news_wrap .contents_wrap .content_box ul{display: flex; gap: 60px;}
 .news_wrap .contents_wrap .content_box li{width: calc(25% - 45px); }
-   /*  width: calc(25% - 45px); (gap:60px*3/4=45px 여백을 빼줘야함)
-   width: calc(100% / 4);
-   */
-
 .news_wrap .contents_wrap .content_box ul a{
    display: block; height: 100%;
    position: relative;
@@ -709,26 +569,14 @@ display: flex;flex-direction: column; gap: 10px;
 .news_wrap .contents_wrap .content_box .img_box{
    position: relative; padding-top: 56%; overflow: hidden;
    border-radius: 12px; margin-bottom: 40px;
-
-   /* padding-top: 52.5%; 브라우저 사진 너비 375(400)의 높이 210은 56%( 52.5%)
-   -> 부모의 width 값을 따라감 ul a :d:display: block이라 ;
-      -> .content_box li{width: calc(25% - 45px);
-   로 계산해야함
-   -> 자손에게 .img_box img에게 position: absolute; 필수
-   */
 }
 
 .news_wrap .contents_wrap .content_box .img_box img{
    object-fit: cover; position: absolute; top: 50%;
    transform: translateY(-50%);
-   /* object-fit: cover;position: absolute;left: 50%;top: 50%;
-  transform: translate(-50%, -50%); */
 }
-.news_wrap .contents_wrap .content_box .txt_box{}
 .news_wrap .contents_wrap .content_box span{display: block; font-size: 18px;}
-.news_wrap .contents_wrap .content_box .label{
-   margin-bottom: 20px; color: var(--main-color); font-weight: 700;
-}
+.news_wrap .contents_wrap .content_box .label{margin-bottom: 20px; color: var(--main-color); font-weight: 700;}
 .news_wrap .contents_wrap .content_box strong{
    display: -webkit-box;
    -webkit-box-orient: vertical;
@@ -755,7 +603,6 @@ display: flex;flex-direction: column; gap: 10px;
 @media screen and (max-width: 1024px){
    .news_wrap .contents_wrap .content_box ul{gap: 20px;}
    .news_wrap .contents_wrap .content_box li{width: calc(25% - 15px);}
-   /* .news_wrap .contents_wrap .content_box .img_box{margin-bottom: 30px;} */
    .news_wrap .contents_wrap .content_box span{font-size: 14px;}
    .news_wrap .contents_wrap .content_box .label{margin-bottom: 14px;}
    .news_wrap .contents_wrap .content_box strong{font-size: 16px; margin-bottom: 40px;}
@@ -763,7 +610,6 @@ display: flex;flex-direction: column; gap: 10px;
 }
 @media screen and (max-width: 768px){
    .news_wrap .contents_wrap .content_box ul{flex-wrap: wrap;}
-      /* gap: 20px;  width:1024px를 연달아서 받음*/
    .news_wrap .contents_wrap .content_box li{width: calc(50% - 10px);}
 }
 @media screen and (max-width: 640px) {
@@ -775,31 +621,6 @@ display: flex;flex-direction: column; gap: 10px;
 @media screen and (max-width: 480px){
    .news_wrap .contents_wrap .content_box li{width: 100%}
 }
-/* 5. banner_wrap_yjw */
-/* .banner_wrap{}
-.banner_wrap .inner{
-   display: flex; flex-direction: column;color: #EEE;
-   align-items: center;justify-content: space-between;
-   background: url(/img/main/sec06_bg.jpg) no-repeat center;
-   background-size: cover;
-   height: 100%;
-   position: relative;
-   padding: ;
-}
-.banner_wrap .inner .banner_text{border-bottom: 1px solid #e0e0e0;}
-.banner_wrap .inner .banner_text::after{}
-
-.banner_wrap .inner .banner_img{
-   display: flex; justify-content: space-between;
-   position: absolute; left: 0;right: 0;top: 50%;
-}
-
-.banner_wrap .inner .banner_btn{
-   padding: 18px 30px;
-   border: 1px solid #fff;
-} */
-/* 5. banner_wrap */
-/* .banner_wrap .inner {} => .inner클래스는 레이아웃 용도로만 사용할 것을 권장 */
 
 .banner_wrap{text-align: center; color: #fff; font-weight: 700;}
 .banner_wrap .banner_content{
@@ -819,7 +640,7 @@ display: flex;flex-direction: column; gap: 10px;
 
 .banner_wrap .banner_content img{
    position: absolute; top: 50%;
-   transform: translateY(-50%); /* 자신의 width 값에서 반(-50%) */
+   transform: translateY(-50%);
 }
 .banner_wrap .obj01{left: 5%}
 .banner_wrap .obj02{right: 5%}
@@ -827,7 +648,6 @@ display: flex;flex-direction: column; gap: 10px;
 .banner_wrap .banner_content .bar{
    height: 1px;
    position: absolute; top:50%; overflow: hidden;
-   /* transform: translateY(-50%); */
    background: rgba(255,255,255,0.6);
 }
 
@@ -836,15 +656,7 @@ display: flex;flex-direction: column; gap: 10px;
    position: absolute;left: -300px;
    background: #fff;
 }
-.banner_wrap .main_link:hover~.bar::after{
-   left: 100%; transition: left 2s;}
-/*
-연산자 사용
-.main_link:hover~ ~ 형제 중 하나
-.main_link:hover+: +직접 형제한테만 적용
-
-<*** 직계(부모자손) 구조가 아닌 애니메이션은 js를 이용하는 것을 권장함>
-*/
+.banner_wrap .main_link:hover~.bar::after{left: 100%; transition: left 2s;}
 
 /* greeting-Main */
 @keyframes flow {
@@ -884,8 +696,7 @@ display: flex;flex-direction: column; gap: 10px;
 }
 @media screen and (max-width: 768px){
    .earth_wrap .img_mob {
-      display: flex; flex-direction: column; align-items: center;
-       /* align-items: stretch; 디폴트값 */ }
+      display: flex; flex-direction: column; align-items: center;}
    .banner_wrap .banner_content{height: 240px;}
    .banner_wrap .banner_content img,.banner_wrap .banner_content .bar{display: none;}
    .banner_wrap .main_link{margin-top: 40px;}
@@ -896,13 +707,6 @@ display: flex;flex-direction: column; gap: 10px;
    .earth_wrap h3 {width: 100%;}}
 
 /* pc / mob용 사진 */
-/*
--pc에서는 안보이고 , 모바일에서만 보이는 스타일
--@media 에는 display 속성만 설정하고
-나머지 스타일은  default(=디폴트) 영역에 작성
-.earth_wrap .img_pc{flex-direction: row;}
-.earth_wrap .img_mob{flex-direction: column;}
-*/
 @media screen and (max-width: 768px){
    [class*="_pc"] {display: none;}
    [class*="_mob"] {display: block;}
@@ -962,7 +766,6 @@ display: flex;flex-direction: column; gap: 10px;
    border-bottom: 2px solid var(--main-color);
 }
 
-/* 여러 페이지에 공통으로 적용되는 리스트 스타일 : greeting, greenEnery */
 .list_style_a .sub_content ul{
    display: flex; flex-wrap: wrap; margin-top: 50px;
    gap: 50px;
@@ -975,16 +778,11 @@ display: flex;flex-direction: column; gap: 10px;
 }
 
 .list_style_a .sub_content .img{
-width: 184px;height: 260px;
-border-radius: 100px; overflow: hidden;}
-
+   width: 184px;height: 260px;
+   border-radius: 100px; overflow: hidden;}
 .list_style_a .sub_content .img img{object-fit: cover; width: 100%; height: 100%;}
-
 .sub main h3 {font-size: 32px;font-weight: 600;}
-
-
 .sub .bbs_list_style h3{font-size: 40px;font-weight: 700; text-align: center;}
-.sub .bbs_list_style ul{}
 .sub .bbs_list_style li{display: flex;}
 .sub .bbs_list_style .img{
    width: 375px; height: 210px; overflow: hidden;
